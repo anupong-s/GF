@@ -1,5 +1,3 @@
-/// <reference path="../typings/angularjs/angular.d.ts" />
-
-// app.ts
+/// <reference path="../typings/tsd.d.ts" />
 
 angular.module('myApp', []);
