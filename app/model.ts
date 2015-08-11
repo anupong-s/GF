@@ -9,8 +9,8 @@ namespace GF {
 			
 		}
 		
-		public get unitPerMonth() {
-			return (this.watts & this.hoursPerDay * this.daysPerMonth) / 1000;			
+		public get unitsPerMonth() {
+			return (this.watts * this.hoursPerDay * this.daysPerMonth) / 1000;			
 		}
 		
 	}	

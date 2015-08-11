@@ -9,18 +9,49 @@
 
 <div ng-controller="MainController as c">
     
-    <h3>{{ c.tv.name }} {{ c.tv.watts }}</h3>
+    <h3>Devices</h3>
     
+    <button class="btn btn-success" ng-click="c.addDevice()">Add Device</button>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th class="text-right">Power</th>
+                <th class="text-right">Hours/Day</th>
+                <th class="text-right">Days/Month</th>
+                <th class="text-right">Units/Month</th>
+                <th style="width: 80px"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="d in c.getAllDevices()">
+                <td>{{ $index+1 }}</td>
+                <td><input ng-model="d.name" /></td>
+                <td class="text-right"><input type="number" ng-model="d.watts" /></td>
+                <td class="text-right">{{ d.hoursPerDay | number:1 }}</td>
+                <td class="text-right">{{ d.daysPerMonth | number:1 }}</td>
+                <td class="text-right">{{ d.unitsPerMonth | number:2 }}</td>
+                <td>
+                    <button class="btn btn-xs btn-danger" ng-click="c.removeDevice(d)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    
+    &copy; 2015
 </div>
 
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../bower_components/angular/angular.js"></script>
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-<script src="../dist/app.js"></script>
-<script src="../dist/model.js"></script>
-<script src="../dist/controller.js"></script>
-
+<script src="app/app.js"></script>
+<script src="app/model.js"></script>
+<script src="app/controller.js"></script>
+<script src="app/service.js"></script>
 
 </body>
 </html>
